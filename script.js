@@ -18,7 +18,7 @@
     const aircrafts = [
         { nome: "Boeing 747", curiosidade: "Conhecido como 'Rainha dos Céus', foi o primeiro avião de fuselagem larga do mundo.", img: "https://upload.wikimedia.org/wikipedia/commons/f/f7/Boeing_747-8.jpg" },
         { nome: "Concorde", curiosidade: "Atingia o dobro da velocidade do som e fazia Londres–Nova York em menos de 3 horas.", img: "https://upload.wikimedia.org/wikipedia/commons/2/26/Concorde_front_view.jpg" },
-        { nome: "Airbus A380", curiosidade: "Maior avião de passageiros do mundo, com dois andares completos.", img: "https://upload.wikimedia.org/wikipedia/commons/5/5d/Airbus_A380_blue_sky.jpg" }
+        { nome: "Airbus A380", curiosidade: "Maior avião de passageiros do mundo, com dois andares completos.", img: "https://upload.wikimedia.org/wikipedia/commons/5/5d/Airbus_A380_blue_sky.jpg" },
     ];
 
     const listContainer = document.getElementById("aircraft-list");
