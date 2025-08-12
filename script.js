@@ -16,9 +16,9 @@
 
     // ===== Lista de Aeronaves =====
     const aircrafts = [
-        { nome: "Boeing 747", curiosidade: "Conhecido como 'Rainha dos Céus', foi o primeiro avião de fuselagem larga do mundo.", img: "https://upload.wikimedia.org/wikipedia/commons/f/f7/Boeing_747-8.jpg" },
-        { nome: "Concorde", curiosidade: "Atingia o dobro da velocidade do som e fazia Londres–Nova York em menos de 3 horas.", img: "https://upload.wikimedia.org/wikipedia/commons/2/26/Concorde_front_view.jpg" },
-        { nome: "Airbus A380", curiosidade: "Maior avião de passageiros do mundo, com dois andares completos.", img: "https://upload.wikimedia.org/wikipedia/commons/5/5d/Airbus_A380_blue_sky.jpg" },
+        { nome: "Boeing 747", curiosidade: "Conhecido como 'Rainha dos Céus', foi o primeiro avião de fuselagem larga do mundo.", img: "https://images.unsplash.com/photo-1610171489366-069debe57b3d?q=80&w=840&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+        { nome: "Concorde", curiosidade: "Atingia o dobro da velocidade do som e fazia Londres–Nova York em menos de 3 horas.", img: "https://simonde.com.br/wp-content/uploads/2019/03/concorde-3.jpg.webp" },
+        { nome: "Airbus A380", curiosidade: "Maior avião de passageiros do mundo, com dois andares completos.", img: "https://images.unsplash.com/photo-1543903905-cee4ab46985c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWlyYnVzJTIwYTM4MHxlbnwwfHwwfHx8MA%3D%3D" },
     ];
 
     const listContainer = document.getElementById("aircraft-list");
