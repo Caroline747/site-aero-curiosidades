@@ -1,112 +1,39 @@
-// Animação navbar
-gsap.from("nav", { y: -60, opacity: 0, duration: 1, ease: "power2.out" });
+// ===== API SpaceX =====
+    fetch("https://api.spacexdata.com/v4/launches/latest")
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById("launch-name").textContent = data.name;
+            document.getElementById("launch-date").textContent = new Date(data.date_utc).toLocaleDateString();
+            document.getElementById("launch-details").textContent = data.details || "Sem detalhes disponíveis.";
+            
+            if (data.links && data.links.patch && data.links.patch.small) {
+                document.getElementById("launch-img").src = data.links.patch.small;
+            }
 
-// Hero
-gsap.from(".hero img", { opacity: 0, scale: 0.9, duration: 1, delay: 0.3 });
-gsap.from(".hero h2, .hero p", { opacity: 0, y: 20, duration: 0.8, delay: 0.5, stagger: 0.2 });
+            gsap.from(".launch-card", { opacity: 0, scale: 0.8, duration: 1 });
+        })
+        .catch(err => console.error("Erro ao carregar dados da SpaceX:", err));
 
-// Cards
-gsap.from(".card", { y: 50, opacity: 0, duration: 1, delay: 0.8, stagger: 0.3 });
+    // ===== Lista de Aeronaves =====
+    const aircrafts = [
+        { nome: "Boeing 747", curiosidade: "Conhecido como 'Rainha dos Céus', foi o primeiro avião de fuselagem larga do mundo.", img: "https://upload.wikimedia.org/wikipedia/commons/f/f7/Boeing_747-8.jpg" },
+        { nome: "Concorde", curiosidade: "Atingia o dobro da velocidade do som e fazia Londres–Nova York em menos de 3 horas.", img: "https://upload.wikimedia.org/wikipedia/commons/2/26/Concorde_front_view.jpg" },
+        { nome: "Airbus A380", curiosidade: "Maior avião de passageiros do mundo, com dois andares completos.", img: "https://upload.wikimedia.org/wikipedia/commons/5/5d/Airbus_A380_blue_sky.jpg" }
+    ];
 
-// Botão com pulso
-gsap.to(".btn-curiosidade", { scale: 1.05, duration: 0.8, repeat: -1, yoyo: true, ease: "power1.inOut" });
+    const listContainer = document.getElementById("aircraft-list");
 
-// Registrar ScrollTrigger
-gsap.registerPlugin(ScrollTrigger);
+    aircrafts.forEach((a, index) => {
+        const col = document.createElement("div");
+        col.className = "col-md-4";
+        col.innerHTML = `
+            <div class="aircraft-card shadow-lg text-center p-3">
+                <img src="${a.img}" class="img-fluid aircraft-img mb-3" alt="${a.nome}">
+                <h4 class="fw-bold">${a.nome}</h4>
+                <p>${a.curiosidade}</p>
+            </div>
+        `;
+        listContainer.appendChild(col);
+    });
 
-// Navbar (animação normal ao carregar)
-gsap.from("nav", { y: -60, opacity: 0, duration: 1, ease: "power2.out" });
-
-// Hero Section (aparece ao rolar)
-gsap.from(".hero img", {
-    scrollTrigger: {
-        trigger: ".hero img",
-        start: "top 80%",
-    },
-    opacity: 0,
-    scale: 0.9,
-    duration: 1
-});
-
-gsap.from(".hero h2, .hero p", {
-    scrollTrigger: {
-        trigger: ".hero h2",
-        start: "top 85%",
-    },
-    opacity: 0,
-    y: 20,
-    duration: 0.8,
-    stagger: 0.2
-});
-
-// Cards (cada um com delay ao entrar na tela)
-gsap.from(".card", {
-    scrollTrigger: {
-        trigger: ".cards, .container",
-        start: "top 85%",
-    },
-    y: 50,
-    opacity: 0,
-    duration: 1,
-    stagger: 0.3
-});
-
-// Botão com pulso infinito
-gsap.to(".btn-curiosidade", {
-    scale: 1.05,
-    duration: 0.8,
-    repeat: -1,
-    yoyo: true,
-    ease: "power1.inOut"
-});
-
-
-gsap.registerPlugin(ScrollTrigger);
-
-// Navbar
-gsap.from("nav", { y: -60, opacity: 0, duration: 1, ease: "power2.out" });
-
-// Hero - Parallax da imagem
-gsap.to(".hero", {
-    backgroundPositionY: "40%",
-    ease: "none",
-    scrollTrigger: {
-        trigger: ".hero",
-        start: "top top",
-        end: "bottom top",
-        scrub: true
-    }
-});
-
-// Texto da Hero (fade-in ao rolar)
-gsap.from(".hero-content h2, .hero-content p", {
-    scrollTrigger: {
-        trigger: ".hero-content",
-        start: "top 85%"
-    },
-    opacity: 0,
-    y: 20,
-    duration: 1,
-    stagger: 0.2
-});
-
-// Cards
-gsap.from(".card", {
-    scrollTrigger: {
-        trigger: ".container",
-        start: "top 85%"
-    },
-    y: 50,
-    opacity: 0,
-    duration: 1,
-    stagger: 0.3
-});
-
-// Botão com pulso
-gsap.to(".btn-curiosidade", {
-    scale: 1.05,
-    duration: 0.8,
-    repeat: -1,
-    yoyo: true,
-    ease: "power1.inOut"
-});
+    gsap.from(".aircraft-card", { opacity: 0, y: 50, duration: 1, stagger: 0.3, delay: 0.5 });

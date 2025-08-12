@@ -3,92 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AeroCuriosidades</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>🚀✈AeroCuriosidades</title>
+    <link rel="stylesheet" href="/style.css">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
-        <div class="container">
-            <a class="navbar-brand" href="#"><i class="fa-solid fa-plane"></i> AeroCuriosidades</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Aeronaves</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Curiosidades</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<header class="text-center">
+    <h1 class="display-4 fw-bold">AeroCuriosidades</h1>
+    <p class="lead">Curiosidades sobre aeronaves e o espaço</p>
+</header>
 
-    <!-- Hero -->
-    <section class="hero text-center p-5 bg-light">
-        <div class="container">
-            <img class="img-fluid rounded shadow-lg mb-3" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Lufthansa_Boeing_747-8_D-ABYT.jpg" alt="Avião">
-            <h2 class="fw-bold">Bem-vindo ao AeroCuriosidades</h2>
-            <p class="lead">Explore modelos de aeronaves e descubra curiosidades fascinantes sobre o mundo da aviação.</p>
-        </div>
-    </section>
-
-    <!-- Cards -->
-    <section class="container my-5">
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="card shadow-sm h-100">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Lufthansa_Boeing_747-8%2C_D-ABYL_-_MSN_37839_2894_%2812312489655%29.jpg" class="card-img-top" alt="Boeing 747">
-                    <div class="card-body">
-                        <h5 class="card-title">Boeing 747</h5>
-                        <p class="card-text">Tipo: Comercial<br>Fabricante: Boeing<br>Conhecido como “Rainha dos Céus”.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card shadow-sm h-100">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/F-22_Raptor_F-35_Lightning_II_fly_in_formation.jpg" class="card-img-top" alt="F-22 Raptor">
-                    <div class="card-body">
-                        <h5 class="card-title">F-22 Raptor</h5>
-                        <p class="card-text">Tipo: Militar<br>Fabricante: Lockheed Martin<br>Quase invisível ao radar.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card shadow-sm h-100">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/10/Concorde_landing.jpg" class="card-img-top" alt="Concorde">
-                    <div class="card-body">
-                        <h5 class="card-title">Concorde</h5>
-                        <p class="card-text">Tipo: Supersônico<br>Fabricante: Aérospatiale–BAC<br>Voava de Londres a NY em menos de 3 horas.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Botão -->
-    <div class="text-center my-5">
-        <button class="btn btn-lg btn-primary shadow btn-curiosidade">Mostrar Curiosidade Aleatória</button>
+<!-- Último Lançamento SpaceX -->
+<section class="container my-5">
+    <h2 class="section-title">🚀 Último Lançamento da SpaceX</h2>
+    <div class="launch-card text-center shadow-lg p-4">
+        <h3 id="launch-name" class="fw-bold"></h3>
+        <p><strong>Data:</strong> <span id="launch-date"></span></p>
+        <p id="launch-details"></p>
+        <img id="launch-img" src="" alt="Lançamento SpaceX" class="img-fluid rounded mt-3">
     </div>
+</section>
 
-    <!-- Footer -->
-    <footer class="bg-primary text-white text-center py-3">
-        <p class="mb-0">&copy; 2025 AeroCuriosidades</p>
-    </footer>
+<!-- Curiosidades de Aeronaves -->
+<section class="container my-5">
+    <h2 class="section-title">✈ Curiosidades de Aeronaves</h2>
+    <div class="row g-4" id="aircraft-list">
+        <!-- Cards serão inseridos via JavaScript -->
+    </div>
+</section>
 
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<footer class="text-center py-4">
+    <p>&copy; 2024 AeroCuriosidades. Todos os direitos reservados.</p>
+</footer>
+
+<script src="/script.js"></script>
 
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <!-- Script -->
-    <script src="js/scripts.js"></script>
 </body>
 </html>
